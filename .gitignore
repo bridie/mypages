@@ -1,0 +1,4 @@
+config/*
+!config/.gitkeep
+node_modules/*
+npm-debug.log
