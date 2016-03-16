@@ -1,0 +1,55 @@
+@import 'variables.less';
+
+body {
+  font-family: 'Cabin', sans-serif;
+  color: @dark-gray;
+  font-size: 16px;
+  header {
+    text-align: center;
+    padding: 5px 0;
+    background: @teal;
+    color: white;
+    font-family: 'Pacifico', cursive;
+    h1 {
+      margin: 0;
+    }
+  }
+
+  section {
+    margin: 80px 0;
+    h1 {
+      text-align: center;
+    }
+  }
+
+  form {
+    text-align: center;
+    input {
+      font-size: 1.2em;
+      display: block;
+      margin: 20px auto;
+      width: 100%;
+      padding: .5em;
+      max-width: 400px;
+      border-radius: 4px;
+      border: 1px solid @mid-gray;
+    }
+    a {
+      display: block;
+      color: #0074D9;
+      text-decoration: none;
+      margin-top: 10px;
+      &:hover, &:focus {
+        color: #001f3f;
+      }
+    }
+    button {
+      font-size: 1.1em;
+      background: @purple;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      padding: .5em 1em;
+    }
+  }
+}

@@ -15,7 +15,7 @@ module.exports = function(passport){
   });
 
   router.post('/login', passport.authenticate('login', {
-    successRedirect: '/home',
+    successRedirect: '/',
     failureRedirect: '/',
     failureFlash : true  
   }));
@@ -25,14 +25,10 @@ module.exports = function(passport){
   });
 
   router.post('/signup', passport.authenticate('signup', {
-    successRedirect: '/home',
+    successRedirect: '/',
     failureRedirect: '/signup',
     failureFlash : true  
   }));
-
-  router.get('/home', isAuthenticated, function(req, res){
-    res.render('home', { user: req.user });
-  });
 
   router.get('/signout', function(req, res) {
     req.logout();
