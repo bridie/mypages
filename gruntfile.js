@@ -1,5 +1,6 @@
 module.exports = function(grunt) {
   require('jit-grunt')(grunt);
+  grunt.loadNpmTasks('grunt-bower-concat');
 
   grunt.initConfig({
     less: {
@@ -22,8 +23,26 @@ module.exports = function(grunt) {
           nospawn: true
         }
       }
+    },
+    bower_concat: {
+      all: {
+        dest: 'public/javascripts/bower.js'
+      }
+    },
+    uglify: {
+      bower: {
+        options: {
+          mangle: true,
+          compress: true
+        },
+        files: {
+          'public/javascripts/bower.min.js': 'public/javascripts/bower.js'
+        }
+      }
     }
+
   });
 
   grunt.registerTask('default', ['less', 'watch']);
+  grunt.registerTask('buildbower', ['bower_concat', 'uglify:bower']);
 };
