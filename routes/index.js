@@ -5,13 +5,17 @@ var isAuthenticated = function (req, res, next) {
   if (req.isAuthenticated()) {
     return next();   
   }
-  res.redirect('/');
+  res.redirect('/login');
 }
 
 module.exports = function(passport){
 
-  router.get('/', function(req, res) {
+  router.get('/', isAuthenticated, function(req, res) {
     res.render('index', { message: req.flash('message') });
+  });
+
+  router.get('/login', function(req, res) {
+    res.render('login', { message: req.flash('message') });
   });
 
   router.post('/login', passport.authenticate('login', {
