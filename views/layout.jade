@@ -1,12 +1,17 @@
 doctype html
-html
+html(ng-app='myPages')
   head
     title= title
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css')
     link(rel='stylesheet', href='/stylesheets/normalize.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
     link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Pacifico')
     link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Cabin:400,400italic,500,500italic,600,600italic,700,700italic')
-  body
+  body(ng-controller='mainController')
     header
       h1 MyPages
     block content
+    script(src='https://code.jquery.com/jquery-2.2.2.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js')
+    script(src='/javascripts/bower.min.js')
+    script(src='/javascripts/core.js')

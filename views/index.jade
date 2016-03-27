@@ -1,5 +1,25 @@
 extends layout
 
 block content
-  section
-    h1 Index
+  main
+    h1(class='hidden') MyPages Dashboard
+    section
+      h1 Add a page
+      form
+        input(
+          type='text'
+          name='pageName'
+          placeholder='Name'
+          ng-model='formData.pageName'
+        )
+        input(
+          type='url'
+          name='pageUrl'
+          placeholder='URL'
+          ng-model='formData.pageUrl'
+        )
+        button(
+          type='submit'
+          ng-click='addPage()'
+        ) Add
+
