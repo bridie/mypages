@@ -1,12 +1,13 @@
 extends layout
 
 block content
-  section#registration
-    h1 Register
-    form(action='/signup', method='POST')
-      input(type='text', name='username', placeholder='Username',required, autofocus)
-      input(type='password', name='password', placeholder='Password', required)
-      button(type='submit') Register
+  main
+    section#registration
+      h1 Register
+      form(action='/signup', method='POST')
+        input(type='text', name='username', placeholder='Username',required, autofocus)
+        input(type='password', name='password', placeholder='Password', required)
+        button(type='submit') Register
 
-      if message
-        p #{message}
+        if message
+          p #{message}
