@@ -1,8 +1,8 @@
 extends layout
 
 block content
-  main
-    section#registration
+  main#registration
+    section
       h1 Register
       form(action='/signup', method='POST')
         input(type='text', name='username', placeholder='Username',required, autofocus)
