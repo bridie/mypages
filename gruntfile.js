@@ -17,7 +17,7 @@ module.exports = function(grunt) {
     },
     watch: {
       styles: {
-        files: ['assets/stylesheets/*.less'],
+        files: ['assets/stylesheets/*.less', 'assets/stylesheets/*/*.less'],
         tasks: ['less'],
         options: {
           nospawn: true
