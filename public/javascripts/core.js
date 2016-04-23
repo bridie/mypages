@@ -1,16 +1,18 @@
 var myPages = angular.module('myPages', []);
 
-myPages.controller('addPageController', ['$scope', '$http', function($scope, $http) {
+myPages.controller('addPageController', ['$http', function($http) {
 
-  $scope.formData = {};
+  var self = this;
 
-  $scope.addPage = function() {
+  self.formData = {};
 
-    $http.post('/api/pages', $scope.formData)
+  self.addPage = function() {
+
+    $http.post('/api/pages', self.formData)
       .success(function(data) {
         console.log(data);
         // Clear the form so the user is ready to add another page.
-        $scope.formData = {};
+        self.formData = {};
       })
       .error(function(data) {
         console.log('Error: ' + data);

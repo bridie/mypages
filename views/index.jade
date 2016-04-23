@@ -3,22 +3,22 @@ extends layout
 block content
   main#dashboard
     h1(class='hidden') MyPages Dashboard
-    section#add-a-page(ng-controller='addPageController')
+    section#add-a-page(ng-controller='addPageController as addPage')
       h1 Add a page
       form
         input(
           type='text'
           name='pageName'
           placeholder='Name'
-          ng-model='formData.pageName'
+          ng-model='addPage.formData.pageName'
         )
         input(
           type='url'
           name='pageUrl'
           placeholder='URL'
-          ng-model='formData.pageUrl'
+          ng-model='addPage.formData.pageUrl'
         )
         button(
           type='submit'
-          ng-click='addPage()'
+          ng-click='addPage.addPage()'
         ) Add
