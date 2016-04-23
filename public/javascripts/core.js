@@ -1,6 +1,6 @@
 var myPages = angular.module('myPages', []);
 
-myPages.controller('mainController', ['$scope', '$http', function($scope, $http) {
+myPages.controller('addPageController', ['$scope', '$http', function($scope, $http) {
 
   $scope.formData = {};
 
@@ -12,9 +12,9 @@ myPages.controller('mainController', ['$scope', '$http', function($scope, $http)
         // Clear the form so the user is ready to add another page.
         $scope.formData = {};
       })
-    .error(function(data) {
-      console.log('Error: ' + data);
-    });
+      .error(function(data) {
+        console.log('Error: ' + data);
+      });
 
   }
   
