@@ -22,3 +22,10 @@ block content
           type='submit'
           ng-click='addPage.addPage()'
         ) Add
+
+    section#groups(ng-controller='groupsController as groups')
+      h1 Groups
+      button(
+        type='button'
+        ng-click='groups.addGroup'
+      ) Add group
