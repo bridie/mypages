@@ -8,14 +8,10 @@ myPages.controller('addPageController', ['$http', function(http) {
 
   self.addPage = function() {
 
-    http.post('/api/pages', self.formData)
-      .success(function(data) {
-        console.log(data);
+    return http.post('/api/pages', self.formData)
+      .then(function(response) {
         // Clear the form so the user is ready to add another page.
         self.formData = {};
-      })
-      .error(function(data) {
-        console.log('Error: ' + data);
       });
 
   }
@@ -25,20 +21,19 @@ myPages.controller('addPageController', ['$http', function(http) {
 myPages.controller('groupsController', ['$scope', '$element', '$compile', '$http', function(scope, element, compile, http) {
 
   var self = this;
+  self.groups = {};
 
   self.getGroups = function() {
-    http.get('/api/groups')
-      .success(function(data) {
-        self.renderGroups(data);
-      })
-      .error(function(data) {
-        console.log('Error: ' + data);
+
+    return http.get('/api/groups')
+      .then(function(response) {
+        self.groups = response.data;
       });
   }
 
-  self.renderGroups = function(groups) {
+  self.renderGroups = function() {
 
-    angular.forEach(groups, function(group) {
+    angular.forEach(self.groups, function(group) {
       var directiveScope = angular.extend(scope, { 'name': group.name, 'pages': group.pages });
       var directive = compile('<group></group>')(scope);
       element.append(directive);
@@ -46,7 +41,7 @@ myPages.controller('groupsController', ['$scope', '$element', '$compile', '$http
 
   }
 
-  self.getGroups();
+  self.getGroups().then(self.renderGroups);
 
 }]);
 
